@@ -10,7 +10,11 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="favicon" href="/assets/favicon-32x32.png" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="/assets/favicon-32x32.png"
+      type="image/x-icon"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -37,20 +41,34 @@
     class="bg-cream flex justify-center items-center h-screen font-montserrat"
   >
     <div
-      class="h-[450px] w-[600px] bg-white rounded-xl overflow-hidden grid grid-cols-2"
+      class="sm:h-[450px] w-11/12 sm:w-[600px] bg-white rounded-xl overflow-hidden grid grid-cols-1 sm:grid-cols-2"
     >
-      <div>
-        <img
-          src="/assets/image-product-desktop.jpg"
-          alt=""
-          class="h-full object-fill"
-        />
+      <div class="h-60 min-w-[375px] overflow-hidden sm:h-full sm:min-w-full">
+        <picture>
+          <source
+            media="(min-width: 640px)"
+            srcset="/assets/image-product-desktop.jpg"
+          />
+          <source
+            media="(max-width: 639px)"
+            srcset="/assets/image-product-mobile.jpg"
+          />
+          <img
+            src="/assets/image-product-desktop.jpg"
+            alt="perfume image"
+            class="object-contain"
+          />
+        </picture>
       </div>
-      <div class="flex flex-col justify-between items-start p-8">
+      <div
+        class="flex flex-col justify-between items-start sm:p-8 p-6 min-h-[380px] sm:min-h-full"
+      >
         <p class="text-darkGrayishBlue uppercase text-sm tracking-[.4em]">
           perfume
         </p>
-        <h2 class="font-fraunces text-4xl">Gabrielle Essence Eau De Parfum</h2>
+        <h2 class="font-fraunces sm:text-4xl text-3xl">
+          Gabrielle Essence Eau De Parfum
+        </h2>
         <p class="text-sm text-darkGrayishBlue">
           A floral, solar and voluptous interpretation composed by Olivier
           Polge, Perfumer-Creator for the House of CHANEL
@@ -69,7 +87,7 @@
         <button
           class="bg-darkCyan hover:bg-darkBlue focus:bg-darkBlue w-full cursor-pointer text-white text-sm py-3 rounded-lg flex justify-center items-center"
         >
-          <img src="/assets/icon-cart.svg" alt="" class="mr-3" />
+          <img src="/assets/icon-cart.svg" alt="cart icon" class="mr-3" />
           Add to Cart
         </button>
       </div>
